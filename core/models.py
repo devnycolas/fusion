@@ -83,3 +83,46 @@ class Recurso(Base):
 
     def __str__(self):
         return self.recurso
+    
+
+class Plano(Base):
+    ICONE_CHOISES = (
+        ('lni-package','Caixa'),
+        ('lni-drop','Gota de Água'),
+        ('lni-star','Estrela'),
+    )
+
+    USER_CHOICES = [(str(i), str(i)) for i in range(1, 11)] + [('ilimitado', 'Ilimitado')]
+    STORAGE_CHOICES = [(str(i), str(i)) for i in range(10, 51, 10)] + [('ilimitado', 'Ilimitado')]
+
+    icone = models.CharField('Icone', max_length=15, choices=ICONE_CHOISES)
+    preco = models.DecimalField('Preço', decimal_places=2, max_digits=8)
+    plano = models.CharField('plano', max_length=100)
+    usuarios = models.CharField('Usuários', max_length=10, choices=USER_CHOICES)
+    armazenamento = models.CharField('Armazenamento', max_length=10, choices=STORAGE_CHOICES)
+    suporte = models.CharField('Suporte', max_length=100)
+    atualizacoes = models.CharField('Atualizações', max_length=100)
+    
+
+    class Meta:
+        verbose_name = "Plano"
+        verbose_name_plural = "Planos"
+    
+    def __str__(self):
+        return self.plano
+    
+class Cliente(Base):
+    AVALIACAO_CHOICES = [(i, str(i)) for i in range(1, 6)]
+
+    imagem = StdImageField('Imagem', upload_to=get_file_path, variations={'thumb': {'width': 480, 'height': 480, 'crop': True}})
+    nome = models.CharField('Nome', max_length=100)
+    cargo = models.ForeignKey('core.Cargo', verbose_name='Cargo', on_delete=models.CASCADE)
+    descricao = models.TextField('Descricao', max_length=200)
+    avaliacao = models.IntegerField('Avaliação', choices=AVALIACAO_CHOICES)
+
+    class Meta:
+        verbose_name = "Cliente"
+        verbose_name_plural = "Clientes"
+
+    def __str__(self):
+        return self.nome

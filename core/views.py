@@ -1,6 +1,6 @@
 from typing import Any
 from django.views.generic import TemplateView
-from .models import Servico, Funcionario, Recurso
+from .models import Servico, Funcionario, Recurso, Plano, Cliente
 
 class IndexView(TemplateView):
     template_name = 'index.html'
@@ -10,4 +10,6 @@ class IndexView(TemplateView):
         context['servicos'] = Servico.objects.order_by('?').all()
         context['funcionarios'] = Funcionario.objects.order_by('?').all()
         context['recursos'] = list(Recurso.objects.order_by('?').all())
+        context['planos'] = Plano.objects.order_by('?').all()
+        context['clientes'] = Cliente.objects.order_by('?').all()
         return context
