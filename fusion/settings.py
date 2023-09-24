@@ -131,6 +131,8 @@ MEDIA_URL = 'media/'
 STATIC_ROOT = BASE_DIR / 'staticfiles' # Usado durante a produção
 MEDIA_ROOT = BASE_DIR / 'media'
 
+DISABLE_COLLECTSTATIC = 1
+
 # Email de teste console
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
