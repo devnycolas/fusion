@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -75,15 +76,19 @@ WSGI_APPLICATION = "fusion.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "fusion",
+#         "USER": "nycolas",
+#         "PASSWORD": "123456",
+#         "HOST": "localhost",
+#         "PORT": "5432",
+#     }
+# }
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "fusion",
-        "USER": "nycolas",
-        "PASSWORD": "123456",
-        "HOST": "localhost",
-        "PORT": "5432",
-    }
+    'default': dj_database_url.config()
 }
 
 
@@ -127,7 +132,7 @@ STATIC_ROOT = Path.joinpath(BASE_DIR, 'staticfiles') # Usado durante a produçã
 MEDIA_ROOT = Path.joinpath(BASE_DIR, 'media')
 
 # Email de teste console
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 """
 # EMAIL PRODUÇÃO
@@ -143,5 +148,7 @@ DEFAULT_FROM_EMAIL = 'contato@fusion.com.br'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+
+LOGOUT_REDIRECT_URL = 'index'
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
