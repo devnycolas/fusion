@@ -128,10 +128,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 MEDIA_URL = 'media/'
-# STATIC_ROOT = Path.joinpath(BASE_DIR, 'staticfiles') # Usado durante a produção
-STATIC_ROOT = BASE_DIR.joinpath('staticfiles') # Usado durante a produção
-# MEDIA_ROOT = Path.joinpath(BASE_DIR, 'media')
-MEDIA_ROOT = BASE_DIR.joinpath('media')
+STATIC_ROOT = BASE_DIR / 'staticfiles' # Usado durante a produção
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Email de teste console
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
