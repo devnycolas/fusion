@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-y+4)h_#vyog^eu+f%g#^s&g*xy7tgatbvav(lyh-2i5#*3be-g"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -76,20 +76,20 @@ WSGI_APPLICATION = "fusion.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "fusion",
-        "USER": "nycolas",
-        "PASSWORD": "123456",
-        "HOST": "localhost",
-        "PORT": "5432",
-    }
-}
-
 # DATABASES = {
-#     'default': dj_database_url.config()
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "fusion",
+#         "USER": "nycolas",
+#         "PASSWORD": "123456",
+#         "HOST": "localhost",
+#         "PORT": "5432",
+#     }
 # }
+
+DATABASES = {
+    'default': dj_database_url.config()
+}
 
 
 # Password validation
