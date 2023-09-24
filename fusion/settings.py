@@ -40,8 +40,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 
     "core",
-    'bootstrap4',
-    'stdimage'
 ]
 
 MIDDLEWARE = [
@@ -128,10 +126,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
-MEDIA_URL = 'media/'
-STATIC_ROOT = Path.joinpath(BASE_DIR, 'staticfiles') # Usado durante a produção
-MEDIA_ROOT = Path.joinpath(BASE_DIR, 'media')
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_URL = '/static/'
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'
 
 # Email de teste console
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
