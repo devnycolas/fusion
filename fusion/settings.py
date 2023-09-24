@@ -88,7 +88,7 @@ WSGI_APPLICATION = "fusion.wsgi.application"
 # }
 
 DATABASES = {
-    'default': dj_database_url.config()
+    "default": dj_database_url.config()
 }
 
 
@@ -128,8 +128,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 MEDIA_URL = 'media/'
-STATIC_ROOT = BASE_DIR / 'staticfiles' # Usado durante a produção
-MEDIA_ROOT = BASE_DIR / 'media'
+STATIC_ROOT = Path.joinpath(BASE_DIR, 'staticfiles') # Usado durante a produção
+MEDIA_ROOT = Path.joinpath(BASE_DIR, 'media')
 
 # Email de teste console
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
