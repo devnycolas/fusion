@@ -5,7 +5,7 @@
 Terceiro projeto do curso de Django Framework
 
 
-## 🛠 Tecnologias
+## 💻 Tecnologias
 
 - Python
 - Django Framework
@@ -14,6 +14,6 @@ Terceiro projeto do curso de Django Framework
 - Banco de dados PostgreSQL
 - Git e Github
 
-## 💛 Contato
+## 💙 Contato
 
 dev.nycolas@outlook.com
